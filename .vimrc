@@ -5,7 +5,16 @@ set nocompatible
 filetype off
 
 " TODO: Load plugins here (pathogen or vundle)
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'valloric/youcompleteme'
+Plugin 'honza/vim-snippets'
+
+" assuming you want to use snipmate snippet engine
+"ActivateAddons vim-snippets snipmate
 " Turn on syntax highlighting
 syntax on
 
