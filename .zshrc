@@ -48,3 +48,7 @@ fi
 alias zshconfig="vim ~/.zshrc"
 alias bat="batcat" # Apt installes bat as batcat
 alias spotify="spotify --force-device-scale-factor=2.0 %U"
+alias gits="git status"
+alias gitd="git diff"
+alias gita="git add -A"
+alias gitc="git commit -m "
