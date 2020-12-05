@@ -44,7 +44,9 @@ else
   export EDITOR='nvim'
 fi
 
-# Aliases
+# --------------------------------------------------------
+# --- Aliases
+# --------------------------------------------------------
 alias zshconfig="vim ~/.zshrc"
 alias bat="batcat" # Apt installes bat as batcat
 alias spotify="spotify --force-device-scale-factor=2.0 %U"
@@ -54,3 +56,11 @@ alias gita="git add -A"
 alias gitc="git commit -m "
 alias gitp="git push"
 alias gitl="git log --all --decorate --oneline --graph"
+
+# --------------------------------------------------------
+# --- Custom functions
+# --------------------------------------------------------
+# Cd and ls
+function cs () {
+	cd "$@" && ls -al
+}
