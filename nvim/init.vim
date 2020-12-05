@@ -39,6 +39,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 	" Fuzzy finder
 Plug 'junegunn/fzf.vim'				  	" Default commands for fzf
 Plug 'airblade/vim-rooter' 				" Changes the working directory to the project root
 Plug 'christoomey/vim-tmux-navigator'			" Move between vim splits and tmux panes
+Plug 'ap/vim-css-color'					" Colorize css color codes
 call plug#end()
 
 " -----------------------
