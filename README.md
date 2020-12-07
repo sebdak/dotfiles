@@ -11,3 +11,10 @@
 - tmux
 - nvm
 - jenv
+
+# Custom settings
+How to get option to work as Meta key on iterm2 on Mac OS:
+- Preferences --> Profiles --> Keys
+Then:
+- Profiles: Natural Text Editing
+- Option key: Esc+
