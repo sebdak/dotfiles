@@ -3,10 +3,13 @@
 " -----------------------
 set showmode
 set number
-set relativenumber	" Relative numbering 
-set nowrap		" Display long lines on single line
-set hidden		" To keep multiple buffers open
+set relativenumber		" Relative numbering 
+set nowrap				" Display long lines on single line
+set hidden				" To keep multiple buffers open
 set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
 set smarttab
 set smartindent
 set autoindent
@@ -24,12 +27,13 @@ set visualbell
 set nobackup
 set nowritebackup
 set cmdheight=2
-set updatetime=300
+set updatetime=50
 set shortmess+=c
+set nohlsearch 		" Turn off highlighting when searching
+set nocompatible
 
 " TODO: Pick a leader key
-" let mapleader = ","
-
+let mapleader = " "
 
 au! BufWritePost $MYVIMRC source %	" Auto source init.vim on save 
 
@@ -44,7 +48,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 	" Fuzzy finder
 Plug 'junegunn/fzf.vim'				  	" Default commands for fzf
 Plug 'airblade/vim-rooter' 				" Changes the working directory to the project root
 Plug 'christoomey/vim-tmux-navigator'			" Move between vim splits and tmux panes
+Plug 'vim-airline/vim-airline' 				" Statusline
 Plug 'ap/vim-css-color'					" Colorize css color codes
+Plug 'sheerun/vim-polyglot'             " Syntax highlightin
 Plug 'neoclide/coc.nvim', {'branch': 'release'}		" Autocomplete engine
 call plug#end()
 
@@ -53,6 +59,7 @@ let g:coc_global_extensions = [
 	\'coc-tsserver',
 	\'coc-html',
 	\'coc-json',
+	\'coc-prettier',
 	\]
 
 " -----------------------
@@ -61,10 +68,12 @@ let g:coc_global_extensions = [
 syntax enable		" TODO: Maybe change to syntax on
 
 colorscheme gruvbox
+set termguicolors
+let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 
 set colorcolumn=100
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+highlight ColorColumn ctermbg=0 guibg=black
 " -----------------------
 " --- FZF SETTINGS
 " -----------------------
@@ -106,7 +115,9 @@ nnoremap <silent> <C-g> :GFiles<CR>
 nnoremap <silent> <C-x> :Buffers<CR>
 nnoremap <silent> <C-m> :Rg!<CR>
 
-" COC
+" -----------------------
+" --- COC SETTINGS
+" -----------------------
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
@@ -222,6 +233,9 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+
+" Format with Prettier:
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
