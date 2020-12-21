@@ -30,6 +30,7 @@ set cmdheight=2
 set updatetime=50
 set shortmess+=c
 set nohlsearch 		" Turn off highlighting when searching
+set ma				" Make buffer modifiable
 set nocompatible
 
 " TODO: Pick a leader key
