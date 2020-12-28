@@ -53,6 +53,7 @@ Plug 'vim-airline/vim-airline' 				" Statusline
 Plug 'ap/vim-css-color'					" Colorize css color codes
 Plug 'sheerun/vim-polyglot'             " Syntax highlightin
 Plug 'neoclide/coc.nvim', {'branch': 'release'}		" Autocomplete engine
+Plug 'tpope/vim-liquid'
 call plug#end()
 
 " COC extensions
@@ -75,10 +76,10 @@ set background=dark
 
 set colorcolumn=100
 highlight ColorColumn ctermbg=0 guibg=black
+
 " -----------------------
 " --- FZF SETTINGS
 " -----------------------
-
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
 " -----------------------
@@ -90,7 +91,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"" Use Alt + hjkl to resize windows
+" Use Alt + hjkl to resize windows
 nnoremap <M-j>	:resize -2<CR>
 nnoremap <M-k>	:resize +2<CR>
 nnoremap <M-h>	:vertical resize -2<CR>
@@ -104,7 +105,7 @@ vnoremap > >gv
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
 
-" Sky Eskace som pesten 
+" Sky esc som pesten 
 inoremap jj <Esc>	
 
 " NERDTree

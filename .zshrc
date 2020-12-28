@@ -52,7 +52,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # --- Aliases
 # --------------------------------------------------------
 alias zshconfig="vim ~/.zshrc"
-alias bat="batcat" # Apt installes bat as batcat
 alias spotify="spotify --force-device-scale-factor=2.0 %U"
 alias gits="git status"
 alias gitd="git diff"
@@ -61,6 +60,13 @@ alias gitc="git commit -m "
 alias gitp="git push"
 alias gitl="git log --all --decorate --oneline --graph"
 
+# Linux specific
+UNAME=$(uname | tr "[:upper:]" "[:lower:]")
+if [[ "$UNAME" == "linux" ]]
+then
+  alias bat="batcat" # Apt installes bat as batcat
+fi
+
 # --------------------------------------------------------
 # --- Custom functions
 # --------------------------------------------------------
@@ -68,3 +74,16 @@ alias gitl="git log --all --decorate --oneline --graph"
 function cs () {
 	cd "$@" && ls -al
 }
+
+# --------------------------------------------------------
+# --- Homebrew Mac ARM
+# --------------------------------------------------------
+if [[ -d "/opt/homebrew/bin" ]]
+then
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
+
+function ibrew() {
+   arch --x86_64 /usr/local/bin/brew $@
+}
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
