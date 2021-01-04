@@ -3,7 +3,7 @@
 " -----------------------
 set showmode
 set number
-set relativenumber		" Relative numbering 
+set relativenumber		" Relative numbering
 set nowrap				" Display long lines on single line
 set hidden				" To keep multiple buffers open
 set noerrorbells
@@ -36,7 +36,7 @@ set nocompatible
 " TODO: Pick a leader key
 let mapleader = " "
 
-au! BufWritePost $MYVIMRC source %	" Auto source init.vim on save 
+au! BufWritePost $MYVIMRC source %	" Auto source init.vim on save
 
 " -----------------------
 " --- PLUGINS
@@ -54,6 +54,7 @@ Plug 'ap/vim-css-color'					" Colorize css color codes
 Plug 'sheerun/vim-polyglot'             " Syntax highlightin
 Plug 'neoclide/coc.nvim', {'branch': 'release'}		" Autocomplete engine
 Plug 'tpope/vim-liquid'
+Plug 'mhinz/vim-signify'
 call plug#end()
 
 " COC extensions
@@ -92,10 +93,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Use Alt + hjkl to resize windows
-nnoremap <M-j>	:resize -2<CR>
-nnoremap <M-k>	:resize +2<CR>
-nnoremap <M-h>	:vertical resize -2<CR>
-nnoremap <M-l>	:vertical resize +2<CR>
+nnoremap <silent> <M-j>	:resize -2<CR>
+nnoremap <silent> <M-k>	:resize +2<CR>
+nnoremap <silent> <M-h>	:vertical resize -2<CR>
+nnoremap <silent> <M-l>	:vertical resize +2<CR>
 
 " Better tabbing
 vnoremap < <gv
@@ -105,8 +106,8 @@ vnoremap > >gv
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
 
-" Sky esc som pesten 
-inoremap jj <Esc>	
+" Sky esc som pesten
+inoremap jj <Esc>
 
 " NERDTree
 nmap <C-n> :NERDTreeToggle<CR>
@@ -115,7 +116,7 @@ nmap <C-n> :NERDTreeToggle<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-g> :GFiles<CR>
 nnoremap <silent> <C-x> :Buffers<CR>
-nnoremap <silent> <C-m> :Rg!<CR>
+nnoremap <silent> <C-w> :Rg<CR>
 
 " -----------------------
 " --- COC SETTINGS

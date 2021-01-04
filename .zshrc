@@ -53,6 +53,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # --------------------------------------------------------
 alias zshconfig="vim ~/.zshrc"
 alias spotify="spotify --force-device-scale-factor=2.0 %U"
+alias v="nvim"
 alias gits="git status"
 alias gitd="git diff"
 alias gita="git add -A"
