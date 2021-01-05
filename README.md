@@ -22,3 +22,9 @@ How to get option to work as Meta key on iterm2 on Mac OS:
   Then:
 - Profiles: Natural Text Editing
 - Option key: Esc+
+
+# Configure kotlin LSP support
+
+- clone kotlin-language-server-
+- build the project
+- link the path to the language server in `coc-settings.json`
