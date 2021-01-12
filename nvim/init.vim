@@ -86,6 +86,11 @@ set background=dark
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
 " -----------------------
+" --- close-tag
+" -----------------------
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx'
+
+" -----------------------
 " --- MAPPINGS
 " -----------------------
 " Dont use Esc
