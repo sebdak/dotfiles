@@ -1,7 +1,9 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
+    "htmldjango",
     "css",
+    "scss",
     "markdown",
     "javascript",
     "javascriptreact",

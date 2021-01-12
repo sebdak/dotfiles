@@ -22,7 +22,7 @@ set ignorecase		" Ignore case when searching
 set smartcase		" Automatically switch search to case-sensitive when search query contains an uppercase letter
 set scrolloff=5
 set showcmd
-set encoding=utf-8
+set encoding=UTF-8
 set visualbell
 set nobackup
 set nowritebackup
@@ -33,7 +33,7 @@ set nohlsearch 		" Turn off highlighting when searching
 set ma				" Make buffer modifiable
 set nocompatible
 
-" TODO: Pick a leader key
+" Leader key
 let mapleader = " "
 
 au! BufWritePost $MYVIMRC source %	" Auto source init.vim on save
@@ -55,12 +55,17 @@ Plug 'sheerun/vim-polyglot'             " Syntax highlightin
 Plug 'neoclide/coc.nvim', {'branch': 'release'}		" Autocomplete engine
 Plug 'tpope/vim-liquid'
 Plug 'mhinz/vim-signify'
+Plug 'mattn/emmet-vim'
+Plug 'alvan/vim-closetag'
+Plug 'ryanoasis/vim-devicons'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 " COC extensions
 let g:coc_global_extensions = [
 	\'coc-tsserver',
 	\'coc-html',
+	\'coc-css',
 	\'coc-json',
 	\'coc-prettier',
 	\]
@@ -75,9 +80,6 @@ set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 
-set colorcolumn=100
-highlight ColorColumn ctermbg=0 guibg=black
-
 " -----------------------
 " --- FZF SETTINGS
 " -----------------------
@@ -86,6 +88,9 @@ let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffse
 " -----------------------
 " --- MAPPINGS
 " -----------------------
+" Dont use Esc
+inoremap jj <Esc>
+
 " Move between splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -106,9 +111,6 @@ vnoremap > >gv
 xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
 
-" Sky esc som pesten
-inoremap jj <Esc>
-
 " NERDTree
 nmap <C-n> :NERDTreeToggle<CR>
 
@@ -121,6 +123,10 @@ nnoremap <silent> <C-w> :Rg<CR>
 " -----------------------
 " --- COC SETTINGS
 " -----------------------
+
+" for scss files
+autocmd FileType scss setl iskeyword+=@-@
+
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
