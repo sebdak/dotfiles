@@ -54,6 +54,8 @@ Plug 'ap/vim-css-color'					" Colorize css color codes
 Plug 'sheerun/vim-polyglot'             " Syntax highlightin
 Plug 'neoclide/coc.nvim', {'branch': 'release'}		" Autocomplete engine
 Plug 'tpope/vim-liquid'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-signify'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
@@ -79,16 +81,6 @@ colorscheme gruvbox
 set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
-
-" -----------------------
-" --- FZF SETTINGS
-" -----------------------
-let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
-
-" -----------------------
-" --- close-tag
-" -----------------------
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx'
 
 " -----------------------
 " --- MAPPINGS
@@ -124,6 +116,21 @@ nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-g> :GFiles<CR>
 nnoremap <silent> <C-x> :Buffers<CR>
 nnoremap <silent> <C-w> :Rg<CR>
+
+" -----------------------
+" --- FZF SETTINGS
+" -----------------------
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+
+" -----------------------
+" --- close-tag SETTINGS
+" -----------------------
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx'
+
+" -----------------------
+" --- NERDTree SETTINGS
+" -----------------------
+let NERDTreeShowHidden=1
 
 " -----------------------
 " --- COC SETTINGS
