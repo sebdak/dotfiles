@@ -36,6 +36,8 @@ set nocompatible
 " Leader key
 let mapleader = " "
 
+au BufEnter * set fo-=c fo-=r fo-=o   " Dont add comment when inserting new line under line with comment
+
 au! BufWritePost $MYVIMRC source %	" Auto source init.vim on save
 
 " -----------------------
