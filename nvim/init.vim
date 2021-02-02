@@ -31,6 +31,7 @@ set updatetime=50
 set shortmess+=c
 set nohlsearch 		" Turn off highlighting when searching
 set ma				" Make buffer modifiable
+set maxmempattern=5000 " for large files e.g. base64 files
 set nocompatible
 
 " Leader key
@@ -73,6 +74,7 @@ let g:coc_global_extensions = [
 	\'coc-json',
 	\'coc-prettier',
 	\]
+" Manually install/uninstall coc-deno when working with deno projects because of conflict with node projects.
 
 " -----------------------
 " --- THEME SETTINGS
