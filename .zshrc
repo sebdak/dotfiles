@@ -88,3 +88,13 @@ function ibrew() {
    arch --x86_64 /usr/local/bin/brew $@
 }
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# --------------------------------------------------------
+# --- jenv
+# --------------------------------------------------------
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
+alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
