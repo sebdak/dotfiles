@@ -64,6 +64,8 @@ Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'zhaozg/vim-diagram' " mermaid syntax support
+Plug 'ruanyl/vim-gh-line'
 call plug#end()
 
 " COC extensions
