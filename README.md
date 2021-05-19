@@ -10,6 +10,7 @@
 - vim-plug
 - bat
 - tmux
+- tmux pluging manager
 - nvm
 - jenv
 - rectangle
