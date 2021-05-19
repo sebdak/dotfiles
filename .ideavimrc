@@ -1,0 +1,23 @@
+" -----------------------
+" --- MAPPINGS
+" -----------------------
+" Dont use Esc
+inoremap jj <Esc>
+
+set surround
+set commentary
+
+" Move between splits
+nmap <C-H> <C-W>h
+nmap <C-L> <C-W>l
+
+let mapleader = " "
+
+nmap <leader>v :vsplit<CR>
+nmap <leader>x :split<CR>
+nmap <leader>f  :action ReformatCode<CR>
+
+" don't lose selection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
