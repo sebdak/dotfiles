@@ -119,6 +119,7 @@ xnoremap J :move '>+1<CR>gv-gv
 
 " NERDTree
 nmap <C-n> :NERDTreeToggle<CR>
+nmap <leader>r :NERDTreeFind<cr>
 
 " FZF
 nnoremap <silent> <C-p> :Files<CR>
