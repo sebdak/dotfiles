@@ -66,6 +66,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'zhaozg/vim-diagram' " mermaid syntax support
 Plug 'ruanyl/vim-gh-line'
+Plug 'skanehira/preview-markdown.vim'
 call plug#end()
 
 " COC extensions
@@ -77,6 +78,7 @@ let g:coc_global_extensions = [
 	\'coc-java',
 	\'coc-prettier',
 	\'coc-svelte',
+	\'coc-jest',
 	\]
 " Manually install/uninstall coc-denoland when working with deno projects because of conflict with node projects.
 " Manually install/uninstall coc-deno when working with deno projects because of conflict with node projects.
@@ -298,3 +300,15 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" Run jest for current project
+command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+
+" Run jest for current file
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
+" Run jest for current test
+nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+
+" Init jest in current cwd, require global jest command exists
+command! JestInit :call CocAction('runCommand', 'jest.init')
