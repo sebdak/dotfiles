@@ -23,6 +23,7 @@ set smartcase		" Automatically switch search to case-sensitive when search query
 set scrolloff=5
 set showcmd
 set encoding=UTF-8
+lang en_US.UTF-8 " to properly display unicode chars
 set visualbell
 set nobackup
 set nowritebackup
