@@ -68,6 +68,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'zhaozg/vim-diagram' " mermaid syntax support
 Plug 'ruanyl/vim-gh-line'
 Plug 'skanehira/preview-markdown.vim'
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 " COC extensions
