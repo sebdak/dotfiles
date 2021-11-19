@@ -81,6 +81,7 @@ let g:coc_global_extensions = [
 	\'coc-prettier',
 	\'coc-svelte',
 	\'coc-jest',
+	\'coc-omnisharp',
 	\]
 " Manually install/uninstall coc-denoland when working with deno projects because of conflict with node projects.
 " Manually install/uninstall coc-deno when working with deno projects because of conflict with node projects.

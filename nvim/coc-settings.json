@@ -11,7 +11,7 @@
     "typescript",
     "typescriptreact",
     "svelte",
-    "json"
+    "json",
   ],
   "languageserver": {
     "kotlin": {

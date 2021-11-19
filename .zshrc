@@ -93,17 +93,21 @@ function ibrew() {
 # --------------------------------------------------------
 # --- jenv
 # --------------------------------------------------------
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
-export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
-alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
+# export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
+# alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
 
 # --------------------------------------------------------
 # --- Deno
 # --------------------------------------------------------
 export PATH="$HOME/.deno/bin:$PATH"
 
+# --------------------------------------------------------
+# --- VS CODE
+# --------------------------------------------------------
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 # --------------------------------------------------------
 # --- GCLOUD
@@ -118,4 +122,9 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 # --------------------------------------------------------
 # --- KUBECONFIG
 # --------------------------------------------------------
-export KUBECONFIG="$HOME/dev/nav/kubeconfigs/config"
+# export KUBECONFIG="$HOME/dev/nav/kubeconfigs/config"
+
+# --------------------------------------------------------
+# --- VIPPS
+# --------------------------------------------------------
+source "$HOME/vipps/checkout-frontend-envs.sh"
