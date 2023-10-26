@@ -127,4 +127,7 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 # --------------------------------------------------------
 # --- VIPPS
 # --------------------------------------------------------
-source "$HOME/vipps/checkout-frontend-envs.sh"
+if [ -f "$HOME/vipps/checkout-frontend-envs.sh" ]
+then
+  source "$HOME/vipps/checkout-frontend-envs.sh"
+fi
