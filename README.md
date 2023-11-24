@@ -2,30 +2,17 @@
 
 ## Tools to install
 
-- ZSH
-- oh-my-zsh. TODO: Configure zsh without oh-my-zsh
-- FZF
-- ripgrep
-- neovim
-- vim-plug
-- bat
-- tmux
-- tmux pluging manager
-- nvm
-- jenv
-- rectangle
+```bash
+brew tap homebrew/cask-fonts
+xargs brew install < brew.txt
+```
 
 # Custom settings
 
-How to get option to work as Meta key on iterm2 on Mac OS:
+## Option key as Meta on iterm2:
 
-- Preferences --> Profiles --> Keys
-  Then:
-- Profiles: Natural Text Editing
-- Option key: Esc+
+- Settings --> Profiles --> Keys --> Option Key: Esc+
 
-# Configure kotlin LSP support
+## Key repeat
 
-- clone kotlin-language-server-
-- build the project
-- link the path to the language server in `coc-settings.json`
+- Settings --> Key repeat rate: Fast, Delay until repeat: Short
