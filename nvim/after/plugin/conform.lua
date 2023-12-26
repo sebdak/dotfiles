@@ -8,6 +8,8 @@ require("conform").setup({
     json = { { "prettierd", "prettier" } },
     html = { { "prettierd", "prettier" } },
     css = { { "prettierd", "prettier" } },
+    cs = { "csharpier" },
+    yaml = { { "prettierd", "prettier" } },
   },
   format_on_save = {
     lsp_fallback = true,

@@ -105,11 +105,12 @@
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "none",
     "editor.codeLens": false,
-    "editor.renderIndentGuides": false,
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "settingsSync.ignoredExtensions": [],
+    "editor.guides.indentation": false,
 }

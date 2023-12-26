@@ -52,8 +52,9 @@ export NVM_DIR="$HOME/.nvm"
 # --------------------------------------------------------
 # --- Aliases
 # --------------------------------------------------------
-alias zshconfig="vim ~/.zshrc"
-alias v="nvim"
+alias zshconfig="$EDITOR ~/.zshrc"
+alias v=$EDITOR
+alias f=fzf
 
 # Linux specific
 UNAME=$(uname | tr "[:upper:]" "[:lower:]")
@@ -61,6 +62,10 @@ if [[ "$UNAME" == "linux" ]]
 then
   alias bat="batcat" # Apt installes bat as batcat
 fi
+
+# For Csharpier to work with conform and dotnet installed via brew
+# might work out of the box if dotnet installed from web
+export DOTNET_ROOT="/opt/homebrew/Cellar/dotnet/8.0.0/libexec"
 
 # --------------------------------------------------------
 # --- Custom functions
@@ -78,12 +83,6 @@ then
     export PATH="/opt/homebrew/bin:$PATH"
 fi
 
-function ibrew() {
-   arch --x86_64 /usr/local/bin/brew $@
-}
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
 # --------------------------------------------------------
 # --- jenv
 # --------------------------------------------------------
@@ -96,17 +95,20 @@ function ibrew() {
 # --------------------------------------------------------
 # --- Deno
 # --------------------------------------------------------
-export PATH="$HOME/.deno/bin:$PATH"
+# export PATH="$HOME/.deno/bin:$PATH"
 
 # --------------------------------------------------------
 # --- VS CODE
 # --------------------------------------------------------
-export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+# export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 # --------------------------------------------------------
 # --- VIPPS
 # --------------------------------------------------------
-if [ -f "$HOME/vipps/checkout-frontend-envs.sh" ]
-then
-  source "$HOME/vipps/checkout-frontend-envs.sh"
-fi
+[ -f "$HOME/vipps/checkout-frontend-envs.sh" ] && source "$HOME/vipps/checkout-frontend-envs.sh"
+
+# Tools config
+[ -x "$(command -v zoxide)" ] && eval "$(zoxide init zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+

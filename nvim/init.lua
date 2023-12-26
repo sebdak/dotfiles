@@ -22,7 +22,7 @@ vim.opt.mouse = "a"
 vim.opt.hidden = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true -- ignore case when searching
-vim.opt.smartcase = true -- automatically switch to case sensitive when search query contains an uppcase letter
+vim.opt.smartcase = true  -- automatically switch to case sensitive when search query contains an uppcase letter
 vim.opt.scrolloff = 8
 vim.opt.showcmd = true
 vim.opt.encoding = "UTF-8"
@@ -37,13 +37,13 @@ vim.opt.undofile = true
 
 vim.opt.updatetime = 50
 vim.opt.ma = true
-vim.opt.hlsearch = false -- turn off search highlighting
+vim.opt.hlsearch = false     -- turn off search highlighting
 vim.opt.maxmempattern = 5000 -- for large files e.g. base64 encoded ones
-vim.opt.fo:remove("c") -- Dont comment new lines after commented line
-vim.opt.fo:remove("r") -- Dont comment new lines after commented line
-vim.opt.fo:remove("o") -- Dont comment new lines after commented line
+vim.opt.fo:remove("c")       -- Dont comment new lines after commented line
+vim.opt.fo:remove("r")       -- Dont comment new lines after commented line
+vim.opt.fo:remove("o")       -- Dont comment new lines after commented line
 vim.opt.termguicolors = true
-vim.opt.signcolumn = "yes" -- Always show gutter
+vim.opt.signcolumn = "yes"   -- Always show gutter
 
 vim.g.completeopts = "menu,menuone,oneselect,noinsert"
 vim.g.closetag_filenames = "*.html,*.tsx,*.jsx"

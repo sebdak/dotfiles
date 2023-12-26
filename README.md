@@ -2,9 +2,15 @@
 
 ## Tools to install
 
+Brew package manager
 ```bash
 brew tap homebrew/cask-fonts
 xargs brew install < brew.txt
+```
+
+Tmux plugin mananager
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 # Custom settings
