@@ -9,12 +9,13 @@ require("conform").setup({
     html = { { "prettierd", "prettier" } },
     css = { { "prettierd", "prettier" } },
     cs = { "csharpier" },
-    yaml = { { "prettierd", "prettier" } },
+    sh = { "shellcheck" },
+    -- yaml = { { "prettierd", "prettier" } },
   },
   format_on_save = {
     lsp_fallback = true,
     async = true,
-    timeout_ms = 500,
+    timeout_ms = 1000,
   },
 })
 
@@ -22,6 +23,6 @@ vim.keymap.set("n", "<leader>f", function()
   require("conform").format({
     lsp_fallback = true,
     async = true,
-    timeout_ms = 500,
+    timeout_ms = 1000,
   })
 end)

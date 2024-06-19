@@ -8,7 +8,6 @@ ZSH_THEME="amuse"
 
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
-
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
@@ -29,6 +28,9 @@ COMPLETION_WAITING_DOTS="true"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
+
+# Because slow startup time?
+DISABLE_AUTO_UPDATE="true"
 
 plugins=(git vi-mode)
 
@@ -65,7 +67,7 @@ fi
 
 # For Csharpier to work with conform and dotnet installed via brew
 # might work out of the box if dotnet installed from web
-export DOTNET_ROOT="/opt/homebrew/Cellar/dotnet/8.0.0/libexec"
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
 # --------------------------------------------------------
 # --- Custom functions
@@ -80,16 +82,18 @@ function cs () {
 # --------------------------------------------------------
 if [[ -d "/opt/homebrew/bin" ]]
 then
-    export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/bin:$PATH"
 fi
 
 # --------------------------------------------------------
 # --- jenv
 # --------------------------------------------------------
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
+if [ -x "$(command -v jenv)" ]; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+  export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
+fi
 
-# export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
 # alias jenv_set_java_home='export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"'
 
 # --------------------------------------------------------
@@ -109,6 +113,5 @@ fi
 
 # Tools config
 [ -x "$(command -v zoxide)" ] && eval "$(zoxide init zsh)"
+[ -x "$(command -v ngrok)" ] && eval "$(ngrok completion)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-

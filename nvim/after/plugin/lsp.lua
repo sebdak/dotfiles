@@ -33,6 +33,27 @@ require("mason-lspconfig").setup({
           ["textDocument/definition"] = require('omnisharp_extended').handler,
         },
         cmd = { omnisharp_bin, '--languageserver', '--hostPID', tostring(pid) },
+        settings = {
+          RoslynExtensionsOptions = {
+            -- Enables support for roslyn analyzers, code fixes and rulesets.
+            -- EnableAnalyzersSupport = true,
+            -- Enables support for showing unimported types and unimported extension
+            -- methods in completion lists. When committed, the appropriate using
+            -- directive will be added at the top of the current file. This option can
+            -- have a negative impact on initial completion responsiveness,
+            -- particularly for the first few completion sessions after opening a
+            -- solution.
+            EnableImportCompletion = true,
+            -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
+            -- true
+            -- AnalyzeOpenDocumentsOnly = nil,
+          },
+          -- Sdk = {
+          --   -- Specifies whether to include preview versions of the .NET SDK when
+          --   -- determining which version to use for project loading.
+          --   IncludePrereleases = true,
+          -- },
+        },
       })
     end,
     eslint = function()
