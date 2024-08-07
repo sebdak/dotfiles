@@ -31,3 +31,5 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- dont drop middle buffer
 vim.keymap.set("x", "<leader>p", '"_dP')
+
+vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })

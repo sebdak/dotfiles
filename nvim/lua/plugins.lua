@@ -16,6 +16,13 @@ vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
+  use("dstein64/vim-startuptime")
+  use {
+    'goolord/alpha-nvim',
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+    end
+  }
   use({
     "nvim-telescope/telescope.nvim",
     tag = "0.1.4",

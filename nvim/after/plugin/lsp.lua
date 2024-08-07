@@ -1,5 +1,7 @@
 local lsp_zero = require("lsp-zero")
 local cmp = require('cmp')
+local mason = require('mason')
+local lspconfig = require('lspconfig')
 
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
@@ -17,42 +19,35 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = bufnr })
 end)
 
-local omnisharp_bin = os.getenv("HOME") .. '/.local/share/nvim/mason/bin/omnisharp'
-local pid = vim.fn.getpid()
+local masonPath = vim.fn.stdpath "data" .. "/mason"
 
-local lspconfig = require('lspconfig')
+mason.setup({})
 
-require("mason").setup({})
+-- Install formatters manually since mason-lspconfig can only install lsp's
+local formatters = { "prettier", "prettierd", "ansible-lint" }
+for i, formatter in pairs(formatters) do
+  if (os.execute('[ -d ' .. masonPath .. "/packages/" .. formatter .. ' ]') > 0)
+  then
+    print(formatter)
+    vim.cmd('MasonInstall ' .. formatter)
+  end
+end
+
 require("mason-lspconfig").setup({
-  ensure_installed = { "tsserver", "omnisharp", "lua_ls", "eslint" },
+  ensure_installed = { "tsserver", "omnisharp", "lua_ls", "eslint", "ansiblels" },
   handlers = {
     lsp_zero.default_setup,
+    ansiblels = lspconfig.ansiblels.setup {},
     omnisharp = function()
       lspconfig.omnisharp.setup({
         handlers = {
           ["textDocument/definition"] = require('omnisharp_extended').handler,
         },
-        cmd = { omnisharp_bin, '--languageserver', '--hostPID', tostring(pid) },
+        cmd = { masonPath .. "/bin/omnisharp", '--languageserver', '--hostPID', tostring(vim.fn.getpid()) },
         settings = {
           RoslynExtensionsOptions = {
-            -- Enables support for roslyn analyzers, code fixes and rulesets.
-            -- EnableAnalyzersSupport = true,
-            -- Enables support for showing unimported types and unimported extension
-            -- methods in completion lists. When committed, the appropriate using
-            -- directive will be added at the top of the current file. This option can
-            -- have a negative impact on initial completion responsiveness,
-            -- particularly for the first few completion sessions after opening a
-            -- solution.
             EnableImportCompletion = true,
-            -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
-            -- true
-            -- AnalyzeOpenDocumentsOnly = nil,
           },
-          -- Sdk = {
-          --   -- Specifies whether to include preview versions of the .NET SDK when
-          --   -- determining which version to use for project loading.
-          --   IncludePrereleases = true,
-          -- },
         },
       })
     end,

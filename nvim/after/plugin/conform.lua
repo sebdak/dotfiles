@@ -10,7 +10,8 @@ require("conform").setup({
     css = { { "prettierd", "prettier" } },
     cs = { "csharpier" },
     sh = { "shellcheck" },
-    -- yaml = { { "prettierd", "prettier" } },
+    toml = { "prettierd", "prettier" },
+    yaml = { { "prettierd", "prettier" } },
   },
   format_on_save = {
     lsp_fallback = true,
