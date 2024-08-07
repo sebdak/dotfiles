@@ -1,5 +1,5 @@
 require("remap")
-require("plugins")
+-- require("plugins")
 
 -- NvimTree specific
 vim.g.loaded_netrw = 1
@@ -47,3 +47,5 @@ vim.opt.signcolumn = "yes"   -- Always show gutter
 
 vim.g.completeopts = "menu,menuone,oneselect,noinsert"
 vim.g.closetag_filenames = "*.html,*.tsx,*.jsx"
+
+require("config.lazy")
