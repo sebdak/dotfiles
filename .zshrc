@@ -40,8 +40,6 @@ select-word-style bash
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
-# source $ZSH/oh-my-zsh.sh
-
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
@@ -53,12 +51,6 @@ fi
 if [[ -d "/opt/homebrew/opt/dotnet"  ]]
 then
   export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
-fi
-
-# ===== Homebrew Mac ARM ======
-if [[ -d "/opt/homebrew/bin" ]]
-then
-  # export PATH="$PATH:/opt/homebrew/bin"
 fi
 
 # ===== VIPPS =====
