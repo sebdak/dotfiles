@@ -46,6 +46,7 @@ return {
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
+      { 'Hoffs/omnisharp-extended-lsp.nvim' }
     },
     config = function()
       local lsp_zero = require('lsp-zero')
@@ -77,9 +78,13 @@ return {
           omnisharp = function()
             lspconfig.omnisharp.setup({
               handlers = {
-                ["textDocument/definition"] = require('omnisharp_extended').handler,
+                ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
+                ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
+                ["textDocument/references"] = require('omnisharp_extended').references_handler,
+                ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
               },
               cmd = { masonPath .. "/bin/omnisharp", '--languageserver', '--hostPID', tostring(vim.fn.getpid()) },
+              enable_import_completion = true,
               settings = {
                 RoslynExtensionsOptions = {
                   EnableImportCompletion = true,

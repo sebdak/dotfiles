@@ -16,12 +16,12 @@ setopt AUTO_PUSHD
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
-zstyle ':vcs_info:git:*' formats '%F{242}git:(%b)%f%F{green}%c%f%F{yellow}%u%f'
+zstyle ':vcs_info:git:*' formats ' %F{242}git:(%b)%f%F{green}%c%f%F{yellow}%u%f'
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' stagedstr '+'
-PROMPT='🐴 %B%F{%(?.blue.red)}%1~%f%b $vcs_info_msg_0_ '
+PROMPT='%B%F{%(?.blue.red)}%1~%f%b$vcs_info_msg_0_ '
 
 # ====== Completion ======
 # Colors for directories, ls, cd, etc.
@@ -39,6 +39,8 @@ select-word-style bash
 # Support bash completions
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
+
+PATH="$PATH:/opt/homebrew/bin"
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -60,6 +62,9 @@ fi
 [ -x "$(command -v zoxide)" ] && eval "$(zoxide init zsh)"
 # [ -x "$(command -v ngrok)" ] && eval "$(ngrok completion)"
 [ -x "$(command -v fzf)" ] && source <(fzf --zsh)
+
+# TODO: set up site functions
+# e.g. /opt/homebrew/share/zsh/site-functions
 
 if [[ -d "$HOME/.zsh" ]]
 then

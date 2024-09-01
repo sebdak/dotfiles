@@ -28,7 +28,6 @@ require("lazy").setup({
         require('nvim-ts-autotag').setup()
       end
     },
-    { "iamcco/markdown-preview.nvim", lazy = true },
   },
   install = { colorscheme = { "gruvbox" } },
   checker = { enabled = true },
