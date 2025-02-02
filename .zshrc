@@ -40,8 +40,6 @@ select-word-style bash
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
-PATH="$PATH:/opt/homebrew/bin"
-
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
@@ -63,6 +61,8 @@ fi
 # [ -x "$(command -v ngrok)" ] && eval "$(ngrok completion)"
 [ -x "$(command -v fzf)" ] && source <(fzf --zsh)
 
+[ -x "$(command -v n)" ] && export N_PREFIX="$HOME/.n"
+
 # TODO: set up site functions
 # e.g. /opt/homebrew/share/zsh/site-functions
 
@@ -73,3 +73,4 @@ then
   source "$HOME/.zsh/function.zsh"
 fi
 
+PATH="$PATH:/opt/homebrew/bin:$HOME/.n/bin:$HOME/.local/bin"
