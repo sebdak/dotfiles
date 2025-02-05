@@ -21,7 +21,14 @@ require("lazy").setup({
     { "tpope/vim-commentary" },
     { "airblade/vim-gitgutter" },
     { "christoomey/vim-tmux-navigator" },
-    { "jiangmiao/auto-pairs" },
+    {
+      "jiangmiao/auto-pairs",
+      config = function()
+        -- Disable the default keymaps provided by auto-pairs
+        vim.g.AutoPairsShortcutJump = ''
+        vim.g.AutoPairsShortcutToggle = ''
+      end
+    },
     {
       "windwp/nvim-ts-autotag",
       config = function()
