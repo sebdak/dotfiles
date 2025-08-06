@@ -46,12 +46,7 @@ else
   export EDITOR='nvim'
 fi
 
-# For Csharpier to work with conform and dotnet installed via brew
-# might work out of the box if dotnet installed from web
-if [[ -d "/opt/homebrew/opt/dotnet"  ]]
-then
-  export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
-fi
+export DOTNET_ROOT="$(dirname $(which dotnet))"
 
 # ===== VIPPS =====
 [ -f "$HOME/vipps/checkout-frontend-envs.sh" ] && source "$HOME/vipps/checkout-frontend-envs.sh"
@@ -73,4 +68,8 @@ then
   source "$HOME/.zsh/function.zsh"
 fi
 
-PATH="$PATH:/opt/homebrew/bin:$HOME/.n/bin:$HOME/.local/bin"
+PATH="$PATH:/opt/homebrew/bin"
+PATH="$PATH:$HOME/.n/bin"
+PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:/usr/local"
+PATH="$PATH:/usr/local/share/dotnet"

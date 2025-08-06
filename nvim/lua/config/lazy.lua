@@ -22,12 +22,11 @@ require("lazy").setup({
     { "airblade/vim-gitgutter" },
     { "christoomey/vim-tmux-navigator" },
     {
-      "jiangmiao/auto-pairs",
+      "echasnovski/mini.pairs",
+      version = '*',
       config = function()
-        -- Disable the default keymaps provided by auto-pairs
-        vim.g.AutoPairsShortcutJump = ''
-        vim.g.AutoPairsShortcutToggle = ''
-      end
+        require('mini.pairs').setup()
+      end,
     },
     {
       "windwp/nvim-ts-autotag",
@@ -35,7 +34,13 @@ require("lazy").setup({
         require('nvim-ts-autotag').setup()
       end
     },
+    {
+      "goolord/alpha-nvim",
+      config = function()
+        require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+      end
+    }
   },
   install = { colorscheme = { "gruvbox" } },
-  checker = { enabled = true },
+  checker = { enabled = false },
 })
