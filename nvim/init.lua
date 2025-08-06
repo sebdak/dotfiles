@@ -48,3 +48,4 @@ vim.g.completeopts = "menu,menuone,oneselect,noinsert"
 vim.g.closetag_filenames = "*.html,*.tsx,*.jsx"
 
 require("config.lazy")
+require("config.lsp")
