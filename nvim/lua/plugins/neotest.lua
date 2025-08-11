@@ -4,14 +4,14 @@ return {
     "nvim-neotest/nvim-nio",
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "Issafalcon/neotest-dotnet"
+    "nsidorenco/neotest-vstest"
   },
   config = function()
     require("neotest").setup({
       adapters = {
-        require("neotest-dotnet")({
-          dap = {
-            adapter_name = "coreclr"
+        require("neotest-vstest")({
+          dap_settings = {
+            type = "coreclr"
           }
         }),
       },
