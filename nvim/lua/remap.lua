@@ -29,7 +29,15 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- dont drop middle buffer
-vim.keymap.set("x", "<leader>p", '"_dP')
+-- multiple paste
+-- vim.keymap.set("n", "p", '"0p', opts)
+-- vim.keymap.set("n", "P", '"0P', opts)
+-- vim.keymap.set("x", "p", '"0p', opts)
+-- vim.keymap.set("x", "P", '"0P', opts)
 
-vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+-- vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
+vim.keymap.set('n', '<leader>dn', function() vim.diagnostic.jump({ count = 1, severity = 'ERROR' }) end,
+  { desc = 'Next diagnostic' })
+vim.keymap.set('n', '<leader>dp', function() vim.diagnostic.jump({ count = -1, severity = 'ERROR' }) end,
+  { desc = 'Previous diagnostic' })

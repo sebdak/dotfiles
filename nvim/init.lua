@@ -36,13 +36,14 @@ vim.opt.undofile = true
 
 vim.opt.updatetime = 50
 vim.opt.ma = true
-vim.opt.hlsearch = false     -- turn off search highlighting
-vim.opt.maxmempattern = 5000 -- for large files e.g. base64 encoded ones
-vim.opt.fo:remove("c")       -- Dont comment new lines after commented line
-vim.opt.fo:remove("r")       -- Dont comment new lines after commented line
-vim.opt.fo:remove("o")       -- Dont comment new lines after commented line
+vim.opt.hlsearch = false          -- turn off search highlighting
+vim.opt.maxmempattern = 5000      -- for large files e.g. base64 encoded ones
+vim.opt.formatoptions:remove("c") -- Dont comment new lines after commented line
+vim.opt.formatoptions:remove("r") -- Dont comment new lines after commented line
+vim.opt.formatoptions:remove("o") -- Dont comment new lines after commented line
+vim.opt.formatoptions:remove("O") -- Dont comment new lines after commented line
 vim.opt.termguicolors = true
-vim.opt.signcolumn = "yes"   -- Always show gutter
+vim.opt.signcolumn = "yes:2"
 
 vim.g.completeopts = "menu,menuone,oneselect,noinsert"
 vim.g.closetag_filenames = "*.html,*.tsx,*.jsx"
